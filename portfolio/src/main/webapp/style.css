@@ -9,6 +9,7 @@
 }
 
 .navbar {
+    display: flex; 
     background-color: #aed9e0; 
     height: 100px;
     width: 100%; 
@@ -70,15 +71,23 @@
 }
 
 .index-welcome {
+    display: flex; 
+    text-align: center;
+    justify-content: center; 
     width: 100%; 
     height: 300px; 
     background-color: #fbfbfb;
 }
 
-p.round {
+p {
+    font-size: 40px; 
+    text-align: center; 
+    vertical-align: center;
+    color: #FFA69E; 
     font-family: 'Quicksand', sans-serif;
-    border: #aed9e0;
-    border-radius: 5px; 
+    border-radius: 25px;
+    border: 5px solid #aed9e0;
+    padding: 20px; 
 }
 
 .index-photo {
