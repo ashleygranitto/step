@@ -7,3 +7,82 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+.navbar {
+    background-color: #aed9e0; 
+    height: 100px;
+    width: 100%; 
+}
+
+.navbar a {
+  color: #f2f2f2;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: center; 
+  padding: 20px;
+  font-size: 40px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.footer {
+    background-color: #aed9e0; 
+    height: 100px;
+    width: 100%; 
+}
+
+.index-box {
+    display: flex; 
+    width: 100%; 
+    height: 1000px; 
+    flex-wrap: wrap;
+    flex-direction: row; 
+}
+
+.index-left {
+    display: flex; 
+    width: 50%; 
+    height: 800px; 
+    flex-wrap: wrap;
+}
+
+.index-right {
+    display: flex; 
+    width: 50%; 
+    height: 800px; 
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.index-intro {
+    width: 100%; 
+    height: 800px; 
+    background-color: #ffc857;
+}
+
+.index-welcome {
+    width: 100%; 
+    height: 300px; 
+    background-color: #fbfbfb;
+}
+
+p.round {
+    font-family: 'Quicksand', sans-serif;
+    border: #aed9e0;
+    border-radius: 5px; 
+}
+
+.index-photo {
+    width: 100%; 
+    height: 500px; 
+    background-color: #FFA69E;
+}
