@@ -10,6 +10,7 @@
 
 .navbar {
     display: flex; 
+    direction: rtl; 
     background-color: #aed9e0; 
     height: 100px;
     width: 100%; 
@@ -36,9 +37,20 @@
 }
 
 .footer {
+    display: flex; 
+    direction: rtl; 
     background-color: #aed9e0; 
     height: 100px;
     width: 100%; 
+}
+
+.footer a {
+  color: #fbfbfb;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: center; 
+  padding: 20px;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .index-box {
@@ -89,6 +101,7 @@ p {
     border: 5px solid #aed9e0;
     padding: 20px; 
 }
+
 
 .index-photo {
     width: 100%; 
