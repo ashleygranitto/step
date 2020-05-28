@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/e073fdea10.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <script src="timeline.js"></script>
   </head>
   <body>
     
@@ -19,13 +19,23 @@
             <div class="index-welcome">
                 <p class="nametag">hi, my name is <br/> ashley granitto</p>
             </div>
-            <div class="index-facts">
-                <h1 class="index-white"> 
-                    LOCATION: Cleveland, OH <br/> <br/>
-                    SCHOOL: Cornell University <br/> <br/>
-                    MAJOR: Computer Science <br/> <br/>
-                    YEAR: 2022
-                </h1>
+            <div class="index-timeline-container">
+                <div class="index-arrow-container">
+                    <button class="index-arrow" onclick="displayPastEvent()"><i class="fas fa-arrow-alt-circle-up"></i></button>
+                </div>
+                <div id="prior-event" class="index-event-container">
+                    Joined Engineers Without Borders Cornell
+                </div>
+                <div class="index-main-event-container">
+                    <div id="current-date" class="index-main-date"> May 2019 - August 2019 </div>
+                    <div id="current-event" class="index-main-event"> Worked as a Technology Camp Instructor for TECH CORPS </div>
+                </div>
+                <div id="future-event" class="index-event-container">
+                    Began working as a course consultant for CS 1110
+                </div>
+                <div class="index-arrow-container">
+                    <button class="index-arrow" onclick="displayFutureEvent()"><i class="fas fa-arrow-alt-circle-down"></i></button>
+                </div>
             </div>
         </div>
         <div class="index-right">
@@ -35,11 +45,11 @@
                 </div>
                 <div class="index-paragraph">
                     <p class="paragraph-text"> 
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                        culpa qui officia deserunt mollit anim id est laborum.
+                        My name is Ashley and I'm a rising junior at Cornell University majoring in computer
+                        science and minoring in science & technology studies. On campus, I'm involved in 
+                        Engineers Without Borders Cornell, APO Service Fraternity, Women in Computing at 
+                        Cornell, and I'm a course consultant for CS 1110. In my spare time, you can find me
+                        reading in my hammock, taking seconds of the day, and adventuring around. 
                     </p>
                 </div>
             </div>
