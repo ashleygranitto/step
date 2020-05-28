@@ -109,8 +109,8 @@ p.paragraph-text {
     font-size: 30px; 
     color: #000; 
     font-family: 'Judson', serif;
-    padding-left: 25px;    
-    padding-right: 25px;
+    padding-left: 40px;    
+    padding-right: 40px;
 }
 
 .index-welcome {
@@ -120,6 +120,8 @@ p.paragraph-text {
     width: 100%; 
     height: 300px; 
     background-color: #fbfbfb;
+    position: relative;
+    z-index: 10;
 }
 
 p.nametag {
@@ -127,13 +129,13 @@ p.nametag {
     text-align: center; 
     vertical-align: center;
     color: #FFA69E; 
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Judson', serif;
     border-radius: 25px;
     border: 5px solid #b8f2e6;
     padding: 10px; 
 }
 
-.index-facts {
+.index-timeline-container {
     display: flex; 
     text-align: center; 
     justify-content: center; 
@@ -141,6 +143,65 @@ p.nametag {
     height: 500px; 
     background-color: #FFA69E;
     flex-direction: column; 
+}
+
+.index-arrow-container {
+    display: flex; 
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    height: 75px; 
+}
+
+.index-arrow {
+    background-color: Transparent;
+    border: none;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    cursor:pointer;
+    color: #fbfbfb;
+    font-size: 50px;  
+}
+
+.index-arrow:hover {
+    color: #b8f2e6;
+}
+
+.index-main-event-container {
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+    justify-content: center;
+    align-items: center; 
+    width: 100%;
+    height: 150px; 
+}
+
+.index-main-date {
+    font-size: 25px; 
+    color: #b8f2e6; 
+    text-shadow: 1px 0 0 #fbfbfb, 0 -1px 0 #fbfbfb, 0 1px 0 #fbfbfb, -1px 0 0 #fbfbfb;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.index-main-event {
+    font-size: 30px; 
+    font-weight: 800;
+    color: #fbfbfb; 
+    padding-left: 35px;
+    padding-right: 35px; 
+    font-family: 'Quicksand', sans-serif;
+}
+
+.index-event-container {
+    display: flex; 
+    text-align: center;
+    justify-content: center;
+    align-items: center; 
+    width: 100%;
+    height: 100px; 
+    font-size: 25px; 
+    color: #ddd; 
+    font-family: 'Quicksand', sans-serif;
 }
 
 h1.index-white {
