@@ -51,37 +51,33 @@
   vertical-align: center; 
 }
 
-.index-container {
+.container {
+  align-items: center; 
   display: flex; 
   flex-direction: row; 
   flex-wrap: wrap;
-  height: 1000px; 
+  justify-content: center; 
+  text-align: center;  
   width: 100%; 
 }
 
+.index-container {
+  height: 1000px; ]
+}
+
 .column {
-  display: flex; 
-  flex-direction: row;
-  flex-wrap: wrap;
   height: 800px;
   width: 50%;   
 }
 
 .about-me-container {
   background-color: #ffc857;
-  display: flex; 
   flex-direction: column; 
-  flex-wrap: wrap; 
   height: 800px; 
-  width: 100%; 
 }
 
 .profile-pic-container {
-  align-items: center; 
-  display: flex;
   height: 450px; 
-  justify-content: center; 
-  width: 100%; 
 }
 
 .profile-pic {
@@ -94,8 +90,6 @@
 
 .intro-paragraph-container {
   height: 350px;
-  text-align: center; 
-  width: 100%;
 }
 
 p.intro-paragraph {
@@ -108,12 +102,8 @@ p.intro-paragraph {
 
 .nametag-container {
   background-color: #fbfbfb;
-  display: flex; 
   height: 300px; 
-  justify-content: center; 
   position: relative;
-  text-align: center;
-  width: 100%; 
   z-index: 10;
 }
 
@@ -139,11 +129,7 @@ p.nametag {
 }
 
 .arrow-container {
-  display: flex; 
   height: 75px; 
-  justify-content: center;
-  text-align: center;
-  width: 100%;
 }
 
 .arrow {
@@ -169,14 +155,14 @@ p.nametag {
   width: 100%;   
 }
 
-.main-date {
+h1.main-date {
   color: #b8f2e6; 
   font-family: 'Quicksand', sans-serif;
-  font-size: 25px; 
+  font-size: 40px; 
   text-shadow: 1px 0 0 #fbfbfb, 0 -1px 0 #fbfbfb, 0 1px 0 #fbfbfb, -1px 0 0 #fbfbfb;
 }
 
-.main-event {
+h1.main-event {
   color: #fbfbfb; 
   font-family: 'Quicksand', sans-serif;
   font-size: 30px; 
@@ -185,16 +171,11 @@ p.nametag {
   padding-right: 35px; 
 }
 
-.event-container {
-  align-items: center; 
+p.event-container {
   color: #ddd; 
-  display: flex; 
   font-family: 'Quicksand', sans-serif;
   font-size: 25px; 
   height: 100px; 
-  justify-content: center;
-  text-align: center;
-  width: 100%;
 }
 
 h1.index-white {
@@ -205,58 +186,41 @@ h1.index-white {
 }
 
 .projects-container {
-  display: flex; 
   flex-direction: column;
-  height: 1700px;
-  width: 100%;   
+  height: 1700px; 
 }
 
 .left-align-container {
   background-color: #FFA69E;
-  display: flex; 
-  flex-wrap: wrap;
   height: 500px; 
-  width: 100%; 
 }
 
 .right-align-container {
   background-color: #ffc857;
   direction: rtl;
-  display: flex; 
-  flex-wrap: wrap;
   height: 500px; 
-  width: 100%; 
 }
 
 .white-project-container {
   background-color: #fbfbfb; 
-  display: flex;
   height: 500px; 
   width: 75%; 
 }
 
 .teal-project-container {
   background-color: #b8f2e6;
-  display: flex; 
   height: 500px; 
   width: 75%; 
 }
 
 .project-description {
-  display: flex; 
   flex-direction: column;
   height: 500px; 
-  justify-content: center; 
-  text-align: center;
   width: 65%; 
 }
 
 .project-image { 
-  align-items: center; 
-  display: flex; 
-  flex-direction: center;
   height: 500px; 
-  justify-content: center; 
   width: 35%; 
 }
 
@@ -289,14 +253,14 @@ p.right-align-text {
 h1.left-align-text {  
   color: #FFA69E; 
   font-family: 'Quicksand', sans-serif;
-  font-size: 75px;
+  font-size: 60px;
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
-h1.pright-align-text {
+h1.right-align-text {
   color: #fbfbfb; 
   font-family: 'Quicksand', sans-serif; 
-  font-size: 75px;
+  font-size: 60px;
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
@@ -314,11 +278,7 @@ h2.right-align-text {
 
 .contact-container {
   background-color: #aed9e0;
-  display: flex;  
-  flex-direction: row; 
-  flex-wrap: wrap;
   height: 1000px;
-  width: 100%;  
 }
 
 .usernames-container {
@@ -403,7 +363,7 @@ h2.right-align-text {
   font-size: 280px; 
 }
 
-.account-username {
+p.account-username {
   align-items:center; 
   color: #fbfbfb;
   display: flex; 
