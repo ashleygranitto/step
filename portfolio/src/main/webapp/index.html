@@ -6,52 +6,50 @@
     <script src="https://kit.fontawesome.com/e073fdea10.js" crossorigin="anonymous"></script>
     <script src="timeline.js"></script>
   </head>
-  <body>  
-    <div class="index-container">
-      <div class="navbar">
-        <a href="contact.html">contact</a>
-        <a href="projects.html">projects</a>
-        <a href="index.html">about</a>
-      </div>
-      <div class="column">
-        <div class="nametag-container">
-          <p class="nametag">hi, my name is <br/> ashley granitto</p>
+  <body class="container index">  
+    <nav class="navbar">
+      <a href="contact.html">contact</a>
+      <a href="projects.html">projects</a>
+      <a href="index.html">about</a>
+    </nav>
+    <div class="container column">
+      <section class="container nametag-container">
+        <p class="nametag">hi, my name is <br/> ashley granitto</p>
+      </section>
+      <section class="timeline-container">
+        <div class="container arrow-container">
+          <button class="arrow" onclick="displayPastEvent()"><i class="fas fa-arrow-alt-circle-up"></i></button>
         </div>
-        <div class="timeline-container">
-          <div class="arrow-container">
-            <button class="arrow" onclick="displayPastEvent()"><i class="fas fa-arrow-alt-circle-up"></i></button>
-          </div>
-          <div id="prior-event" class="event-container">Joined Engineers Without Borders Cornell</div>
-          <div class="main-event-container">
-            <div id="current-date" class="main-date"> May 2019 - August 2019 </div>
-            <div id="current-event" class="main-event"> Worked as a Technology Camp Instructor for TECH CORPS </div>
-          </div>
-          <div id="future-event" class="event-container">Began working as a course consultant for CS 1110</div>
-          <div class="arrow-container">
-            <button class="arrow" onclick="displayFutureEvent()"><i class="fas fa-arrow-alt-circle-down"></i></button>
-          </div>
+        <p id="prior-event" class="container event-container">Joined Engineers Without Borders Cornell</p>
+        <div class="main-event-container">
+          <h1 id="current-date" class="main-date"> May 2019 - August 2019 </h1>
+          <h1 id="current-event" class="main-event"> Worked as a Technology Camp Instructor for TECH CORPS </h1>
         </div>
-      </div>
-      <div class="column">
-        <div class="about-me-container">
-          <div class="profile-pic-container">
-            <img class="profile-pic" src="images/WebsiteProfile.jpg" />
-          </div>
-          <div class="intro-paragraph-container">
-            <p class="intro-paragraph"> 
+        <p id="future-event" class="container event-container">Began working as a course consultant for CS 1110</p>
+        <div class="container arrow-container">
+          <button class="arrow" onclick="displayFutureEvent()"><i class="fas fa-arrow-alt-circle-down"></i></button>
+        </div>
+      </section>
+    </div>
+    <section class="container column">
+      <article class="about-me-container">
+        <picture class="container profile-pic-container">
+          <img class="profile-pic" src="images/WebsiteProfile.jpg" />
+        </picture>
+        <div class="container intro-paragraph-container">
+          <p class="intro-paragraph"> 
               My name is Ashley and I'm a rising junior at Cornell University majoring in computer
               science and minoring in science & technology studies. On campus, I'm involved in 
               Engineers Without Borders Cornell, APO Service Fraternity, Women in Computing at 
               Cornell, and I'm a course consultant for CS 1110. In my spare time, you can find me
               reading in my hammock, taking seconds of the day, and adventuring around. 
-            </p>
-          </div>
+          </p>
         </div>
-      </div>
-      <div class="footer">
-        <a href="https://www.linkedin.com/in/ashley-granitto"><i class="fab fa-linkedin-in fa-3x"></i></a>
-        <a href="https://github.com/ashleygranitto"><i class="fab fa-github fa-3x"></i></a>
-      </div>
-    </div>
+      </article>
+    </section>
+    <footer class="footer">
+      <a href="https://www.linkedin.com/in/ashley-granitto"><i class="fab fa-linkedin-in fa-3x"></i></a>
+      <a href="https://github.com/ashleygranitto"><i class="fab fa-github fa-3x"></i></a>
+    </footer>
   </body>
 </html>
