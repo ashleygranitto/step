@@ -3,17 +3,52 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/e073fdea10.js" crossorigin="anonymous"></script>
+    <script src="contact-switch.js"></script>
   </head>
   <body>
-    <div class="navbar">
+    <div class="contact-container">
+      <div class="navbar">
         <a href="contact.html">contact</a>
         <a href="projects.html">projects</a>
         <a href="index.html">about</a>
-    </div>
-    <div class="footer">
-        <a href="https://www.linkedin.com/in/ashley-granitto"><i class="fab fa-linkedin-in fa-3x"></i></a>
-        <a href="https://github.com/ashleygranitto"><i class="fab fa-github fa-3x"></i></a>
+      </div>
+      <div class="usernames-container">
+        <div class="business-tab" onclick="personalToBusiness()">BUSINESS</div>
+          <div id="business-body" class="business-body">
+            <div class="account-container">
+              <a class="account-icon" href="https://www.linkedin.com/in/ashley-granitto"><i class="fab fa-linkedin-in"></i></a>
+              <div class="account-username">ashley-granitto</div>
+            </div>
+            <div class="account-container">
+              <a class="account-icon" href="mailto:aeg249@cornell.edu"><i class="far fa-envelope"></i></a>
+              <div class="account-username">aeg249@cornell.edu</div>
+            </div>
+            <div class="account-container">
+              <a class="account-icon" href="https://github.com/ashleygranitto"><i class="fab fa-github"></i></a>
+              <div class="account-username">@ashleygranitto</div>
+            </div>
+          </div>
+          <div id="personal-body" class="personal-body">
+            <div class="account-container">
+              <div class="account-username">@ashleygranitto</div>
+              <a class="account-icon" href="https://www.instagram.com/ashleygranitto/?hl=en"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="account-container">
+              <div class="account-username">granittoashley@gmail.com</div>
+              <a class="account-icon" href="mailto:granittoashley@gmail.com"><i class="far fa-envelope"></i></a>
+            </div>
+            <div class="account-container">
+              <div class="account-username">Ashley Granitto</div>
+              <a class="account-icon" href="https://www.youtube.com/channel/UCUWdAT3O2K4gJGyqkkBGxOA"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="personal-tab" onclick="businessToPersonal()">PERSONAL</div>
+        </div>
+        <div class="footer">
+          <a href="https://www.linkedin.com/in/ashley-granitto"><i class="fab fa-linkedin-in fa-3x"></i></a>
+          <a href="https://github.com/ashleygranitto"><i class="fab fa-github fa-3x"></i></a>
+      </div>
     </div>
   </body>
 </html>
