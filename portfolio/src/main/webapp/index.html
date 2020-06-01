@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/e073fdea10.js" crossorigin="anonymous"></script>
+    <script src="load-index.js"></script>
     <script src="timeline.js"></script>
   </head>
   <body class="container index">  
@@ -13,8 +14,8 @@
       <a href="index.html">about</a>
     </nav>
     <div class="container column">
-      <section class="container nametag-container">
-        <p class="nametag">hi, my name is <br/> ashley granitto</p>
+      <section class="container nametag-container" onclick="getNametagText()">
+        <p id="nametag" class="nametag">click here</p>
       </section>
       <section class="timeline-container">
         <div class="container arrow-container">
