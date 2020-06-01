@@ -62,7 +62,7 @@
 }
 
 .index-container {
-  height: 1000px; ]
+  height: 1000px; 
 }
 
 .column {
@@ -375,4 +375,13 @@ p.account-username {
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
   vertical-align: center; 
   width: 60%; 
+}
+
+.comment-container {
+  height: 1000px;
+}
+
+.comment-section-container {
+  background-color: #ffc857;
+  height: 800px;
 }
