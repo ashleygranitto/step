@@ -5,16 +5,26 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/e073fdea10.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <script src="comment-form.js"></script>
   </head>
-  <body class="container comment-container">
+  <body class="container comment-container" onload="getComments()">
     <nav class="navbar">
       <a href="comment.html">comment</a>
       <a href="contact.html">contact</a>
       <a href="projects.html">projects</a>
       <a href="index.html">about</a>
     </nav>
-    <section class="container comment-section-container"></section>
+    <main class="container comment-section-container">
+      <section id="comment-form" class="container form-container">
+        <form action="/handle-comment" method="POST">
+          <label for="user-comment">Leave a comment below:</label><br>
+          <input type="text" id="user-comment" name="user-comment"><br>
+          <br/><br/>
+          <input type="submit" />
+        </form>
+      </section>
+      <section id="comment-display" class="comment-feed-container"></section>
+    </main>
     <footer class="footer">
       <a href="https://www.linkedin.com/in/ashley-granitto"><i class="fab fa-linkedin-in fa-3x"></i></a>
       <a href="https://github.com/ashleygranitto"><i class="fab fa-github fa-3x"></i></a>

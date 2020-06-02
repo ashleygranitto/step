@@ -386,6 +386,35 @@ p.account-username {
 }
 
 .comment-section-container {
-  background-color: #ffc857;
   height: 800px;
+}
+
+.form-container {
+  background-color: #fbfbfb;
+  height: 800px;
+  width: 50%;
+}
+
+.comment-feed-container {
+  background-color: #ffc857;
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+  width: 50%;
+}
+
+p.user-comment {
+  background-color: #fbfbfb;
+  border: 5px solid #b8f2e6;
+  border-radius: 25px;
+  color: #FFA69E; 
+  font-family: 'Judson', serif;
+  font-size: 40px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;  
+  padding: 5px; 
+  text-align: center; 
+  vertical-align: center;
 }
