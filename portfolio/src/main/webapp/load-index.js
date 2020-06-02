@@ -4,15 +4,17 @@ async function getNametagText() {
   const greetings = await response.json();
 
   // Properly format and place the fetched greetings within the nametag
-  const nametag = document.getElementById('nametag'); 
-  nametag.innerHTML = formatComments(greetings);
+  const nametag = document.getElementById('nametag-container'); 
+  nametag.innerHTML = '';
+  formatComments(nametag, greetings);
 }
 
-// Format a list of comments such that their is a newline between each
-function formatComments (comments) {
-  master = '';
+// Format a list of comments such that each is a new paragraph
+function formatComments(container, comments) {
   comments.forEach((comment) => {
-    master += comment + '</br>'
+    const pElement = document.createElement('p');
+    pElement.innerText = comment; 
+    pElement.className = 'nametag';
+    container.appendChild(pElement);
   });
-  return master; 
 }
