@@ -34,7 +34,7 @@ public class FormServlet extends HttpServlet {
     String userComment = request.getParameter("user-comment");
     comments.add(userComment); 
 
-    // Redirect back to the HTML page.
+    // Redirect back to the HTML page
     response.sendRedirect("/comment.html");
   }
 
@@ -46,7 +46,7 @@ public class FormServlet extends HttpServlet {
     response.getWriter().println(json);
   }
 
-  // Converts a String-type ArrayList into a JSON string using the Gson library. 
+  // Converts a String-type ArrayList into a JSON string using the Gson library
   private String convertToJson(ArrayList<String> list) {
     Gson gson = new Gson();
     String json = gson.toJson(list);
