@@ -29,7 +29,7 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Initial list of nametag greetings
-    ArrayList<String> greetings = new ArrayList<String>();
+    ArrayList<String> greetings = new ArrayList<>();
     greetings.add("hi & welcome");
     greetings.add("to the portfolio");
     greetings.add("of ashley granitto");
