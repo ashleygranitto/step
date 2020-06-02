@@ -14,6 +14,9 @@
 
 package com.google.sps.servlets;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,13 +29,16 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/handle-comment")
 public class FormServlet extends HttpServlet {
 
-  private ArrayList<String> comments = new ArrayList<>(); 
-
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // Add newest user comment to the list of comments on the feed
+    // Retrieve newest user comment and store it as a Comment Entity
     String userComment = request.getParameter("user-comment");
-    comments.add(userComment); 
+    Entity commentEntity = new Entity("Comment");
+    commentEntity.setProperty("text", userComment);
+
+    // Store the Comment Entity in Datastore 
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(commentEntity);
 
     // Redirect back to the HTML page
     response.sendRedirect("/comment.html");
