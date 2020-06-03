@@ -408,13 +408,23 @@ p.account-username {
   width: 50%;
 }
 
+.radio {
+  height: 50px;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  height: 750px;
+}
+
 p.user-comment {
   background-color: #fbfbfb;
   border: 5px solid #b8f2e6;
   border-radius: 25px;
   color: #ffa69e; 
   font-family: 'Judson', serif;
-  font-size: 40px;
+  font-size: 30px;
   margin: 5px 10px;  
   padding: 5px; 
   text-align: center; 
