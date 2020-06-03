@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns nametag text. */
+/** Servlet that returns user comments. */
 @WebServlet("/handle-comment")
 public class FormServlet extends HttpServlet {
 
