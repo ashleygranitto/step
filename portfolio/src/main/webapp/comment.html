@@ -16,11 +16,10 @@
     </nav>
     <main class="container comment-section-container">
       <section id="comment-form" class="container form-container">
-        <form action="/handle-comment" method="POST">
-          <label for="user-comment">Leave a comment below:</label><br>
-          <input type="text" id="user-comment" name="user-comment"><br>
-          <br/><br/>
-          <input type="submit" />
+        <form action="/handle-comment" class="container form" method="POST">
+          <label for="user-comment">Leave a comment below:</label>
+          <input type="text" id="user-comment" name="user-comment">
+          <button type="submit">Submit</button>
         </form>
       </section>
       <section id="comment-display" class="comment-feed-container"></section>
