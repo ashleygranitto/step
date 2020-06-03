@@ -12,7 +12,7 @@ const personalAccounts = [
 
 let current = 'business';
 
-// Switch from the business tab to the personal tab 
+/** Switch from the business tab to the personal tab */ 
 function businessToPersonal() { 
     if (current === 'business') { 
         document.getElementById('business-body').style.display = 'none';
@@ -21,7 +21,7 @@ function businessToPersonal() {
     current = 'personal';
 }
 
-// Switch from the business tab to the personal tab 
+/** Switch from the business tab to the personal tab */
 function personalToBusiness() {  
     if (current === 'personal') { 
         document.getElementById('business-body').style.display = 'flex';
@@ -30,7 +30,7 @@ function personalToBusiness() {
     current = 'business';
 }
 
-// Append contact information to the business body
+/** Append contact information to the business body */
 function createBusinessBody() {
     businessAccounts.forEach(function(account) {
         document.getElementById('business-body').innerHTML +=  
@@ -42,7 +42,7 @@ function createBusinessBody() {
     }); 
 }
 
-// Append contact information to the personal body
+/** Append contact information to the personal body */
 function createPersonalBody() {
     personalAccounts.forEach(function(account) {
         document.getElementById('personal-body').innerHTML +=  
