@@ -50,20 +50,37 @@ public class FormServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Retrieve the maximum quantity of comments to display
+    String radioValueString = request.getParameter("value");
+    int max = Integer.parseInt(radioValueString);
+
+    // Obtain a list of at most 'max' comments
     Query query = new Query("Comment");
     PreparedQuery results = datastore.prepare(query);
-
-    // Store the text element of each entity in a list of comments
-    ArrayList<String> comments = new ArrayList<>();
-    for (Entity entity : results.asIterable()) {
-      String comment = (String) entity.getProperty("text");
-      comments.add(comment);
-    }
-
+    ArrayList<String> comments = formCommentList(results, max);
+    
     // Send JSON-converted comments list as the response
     String json = convertToJson(comments);
     response.setContentType("application/json;");
     response.getWriter().println(json);
+  }
+
+  // Return a list containing the text element of at most 'max' Comment Entities 
+  private ArrayList<String> formCommentList(PreparedQuery results, int max) {
+    ArrayList<String> comments = new ArrayList<>();
+    int commentCount = 0;
+
+    for (Entity entity : results.asIterable()) {
+      String comment = (String) entity.getProperty("text");
+      comments.add(comment);
+
+      // Ensure no more than 'max' comments are posted
+      commentCount++;
+      if (commentCount == max) {
+          break; 
+      }
+    }
+    return comments; 
   }
 
   // Converts a String-type ArrayList into a JSON string using the Gson library
