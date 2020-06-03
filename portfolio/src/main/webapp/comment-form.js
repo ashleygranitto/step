@@ -1,9 +1,20 @@
-/** Retrieve and post user comments */
+/** Retrieve and post the default quantity of user comments */
 async function getComments() {
-  const response = await fetch('/handle-comment');
-  const comments = await response.json();
+  postFeed(3);
+}
 
-  // Properly format and place the fetched comments within the feed
+/** Update the feed to display the quantity of comments the user requested */
+async function updateComments(button) {
+  postFeed(button.value);
+}
+
+/** Properly fetch, format, and place the specified quantity of comments within the feed */
+async function postFeed(quantity) {
+  // Retrieve desired amount of comments
+  const response = await fetch('/handle-comment?value=' + quantity);
+  const comments = await response.json();
+  
+  // Post comments to the feed
   const feed = document.getElementById('comment-display'); 
   feed.innerHTML = '';
   formatComments(feed, comments);
