@@ -32,6 +32,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/handle-comment")
 public class FormServlet extends HttpServlet {
 
+  private DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Retrieve newest user comment and store it as a Comment Entity
@@ -40,7 +42,6 @@ public class FormServlet extends HttpServlet {
     commentEntity.setProperty("text", userComment);
 
     // Store the Comment Entity in Datastore 
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(commentEntity);
 
     // Redirect back to the HTML page
@@ -50,7 +51,6 @@ public class FormServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Query query = new Query("Comment");
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
     // Store the text element of each entity in a list of comments
