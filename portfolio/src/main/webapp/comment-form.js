@@ -1,4 +1,4 @@
-// Retrieve and post user comments
+/** Retrieve and post user comments */
 async function getComments() {
   const response = await fetch('/handle-comment');
   const comments = await response.json();
@@ -9,7 +9,7 @@ async function getComments() {
   formatComments(feed, comments);
 }
 
-// Format list of user comments such that each is represented as a paragraph
+/** Format list of user comments such that each is represented as a paragraph */
 function formatComments(container, comments) {
   comments.forEach((comment) => {
     const pElement = document.createElement('p');
