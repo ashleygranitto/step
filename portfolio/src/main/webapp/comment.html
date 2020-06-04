@@ -22,7 +22,17 @@
           <button type="submit">Submit</button>
         </form>
       </section>
-      <section id="comment-display" class="comment-feed-container"></section>
+      <section class="comment-feed-container">
+        <article class="container radio">
+          <label for="three">3</label>
+          <input type="radio" id="three" name="quantity" value="3" onchange="updateComments()" checked>
+          <label for="five">5</label>
+          <input type="radio" id="five" name="quantity" value="5" onchange="updateComments()">
+          <label for="ten">10</label>
+          <input type="radio" id="ten" name="quantity" value="10" onchange="updateComments()">
+        </article>
+        <article id="comment-display" class="feed"><article>
+      </section>
     </main>
     <footer class="footer">
       <a href="https://www.linkedin.com/in/ashley-granitto"><i class="fab fa-linkedin-in fa-3x"></i></a>

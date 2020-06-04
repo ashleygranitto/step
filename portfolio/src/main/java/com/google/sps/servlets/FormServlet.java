@@ -17,12 +17,15 @@ package com.google.sps.servlets;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.appengine.api.search.Query.Builder;
+import com.google.appengine.api.search.QueryOptions;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -50,20 +53,43 @@ public class FormServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    Query query = new Query("Comment");
-    PreparedQuery results = datastore.prepare(query);
+    // Retrieve the maximum quantity of comments to display
+    String radioValueString = request.getParameter("quantity");
 
-    // Store the text element of each entity in a list of comments
-    ArrayList<String> comments = new ArrayList<>();
-    for (Entity entity : results.asIterable()) {
-      String comment = (String) entity.getProperty("text");
-      comments.add(comment);
+    // Ensure quantity parameter is an integer
+    int max = 0; 
+    try {
+      max = Integer.parseInt(radioValueString);
+    } catch (NumberFormatException e) {
+      throw new IOException("Quantity is not an integer.");
     }
 
+    // Ensure quantity parameter is of one of the three permitted amounts
+    if (max != 3 && max != 5 && max != 10) {
+      throw new IOException("Quantity may only have the value 3, 5, or 10.");
+    }
+
+    // Obtain a list of at most 'max' comments
+    Query query = new Query("Comment");
+    List<Entity> results = 
+      datastore.prepare(query).asQueryResultList(FetchOptions.Builder.withLimit(max));
+    ArrayList<String> comments = formCommentList(results, max);
+    
     // Send JSON-converted comments list as the response
     String json = convertToJson(comments);
     response.setContentType("application/json;");
     response.getWriter().println(json);
+  }
+
+  // Return a list containing the text element of at most 'max' Comment Entities 
+  private ArrayList<String> formCommentList(List<Entity> results, int max) {
+    ArrayList<String> comments = new ArrayList<>();
+    int commentCount = 0;
+    for (Entity entity : results) {
+      String comment = (String) entity.getProperty("text");
+      comments.add(comment);
+    }
+    return comments; 
   }
 
   // Converts a String-type ArrayList into a JSON string using the Gson library
