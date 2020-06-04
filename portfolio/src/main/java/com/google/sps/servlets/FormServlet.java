@@ -51,9 +51,22 @@ public class FormServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Retrieve the maximum quantity of comments to display
-    String radioValueString = request.getParameter("value");
-    int max = Integer.parseInt(radioValueString);
+    String radioValueString = request.getParameter("quantity");
 
+    int max = 0; 
+
+    // Ensure quantity parameter is an integer
+    try {
+      max = Integer.parseInt(radioValueString);
+    } catch (Exception e) {
+      throw new IOException("Quantity is not an integer.");
+    }
+
+    // Ensure quantity parameter is of one of the three permitted amounts
+    if (max != 3 && max != 5 && max != 10) {
+      throw new IOException("Quantity may only have the value 3, 5, or 10.");
+    }
+      
     // Obtain a list of at most 'max' comments
     Query query = new Query("Comment");
     PreparedQuery results = datastore.prepare(query);
