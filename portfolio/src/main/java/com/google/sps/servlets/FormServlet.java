@@ -20,9 +20,6 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
-import com.google.appengine.api.datastore.Query.SortDirection;
-import com.google.appengine.api.search.Query.Builder;
-import com.google.appengine.api.search.QueryOptions;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.*;
@@ -66,7 +63,7 @@ public class FormServlet extends HttpServlet {
 
     // Ensure quantity parameter is of one of the three permitted amounts
     if (max != 3 && max != 5 && max != 10) {
-      throw new IOException("Quantity may only have the value 3, 5, or 10.");
+      response.sendError(400, "Quantity may only have the value 3, 5, or 10.");
     }
 
     // Obtain a list of at most 'max' comments
