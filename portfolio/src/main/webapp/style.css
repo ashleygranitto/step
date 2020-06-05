@@ -387,6 +387,8 @@ p.account-username {
 
 .comment-section-container {
   height: 800px;
+  font-family: 'Judson', serif;
+  font-size: 30px;
 }
 
 .form-container {
@@ -414,7 +416,7 @@ p.account-username {
 
 .feed {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   height: 750px;
 }
 
@@ -423,10 +425,57 @@ p.user-comment {
   border: 5px solid #b8f2e6;
   border-radius: 25px;
   color: #ffa69e; 
-  font-family: 'Judson', serif;
-  font-size: 30px;
   margin: 5px 10px;  
   padding: 5px; 
   text-align: center; 
   vertical-align: center;
+}
+
+.comment-label {
+  color: #ffa69e; 
+  margin: 5px 10px;  
+  padding: 5px;
+}
+
+.comment-button {
+  border: none;
+  color: white;
+  cursor: pointer; 
+  font-family: 'Judson', serif;
+  font-size: 30px;
+  margin: 10px; 
+  padding: 15px 32px;
+  text-align: center;
+}
+
+.comment-button:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.submit-button {
+  background-color: #aed9e0;
+}
+
+.delete-button {
+  background-color: #ffa69e;
+}
+
+.quantity-label {
+  color: white; 
+  font-size: .66em; 
+}
+
+.love-button-container {
+  color: #fbfbfb; 
+  font-size: .5em; 
+}
+
+.love-button {
+  cursor: pointer; 
+  padding: 5px; 
+}
+
+.love-button:hover {
+  color: #ddd;
 }
