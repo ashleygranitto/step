@@ -17,19 +17,20 @@
     <main class="container comment-section-container">
       <section id="comment-form" class="container form-container">
         <form action="/handle-comment" class="container form" method="POST">
-          <label for="user-comment">Leave a comment below:</label>
+          <label for="user-comment" class="comment-label">Leave a Comment Below:</label>
           <input type="text" id="user-comment" name="user-comment">
-          <button type="submit">Submit</button>
+          <button type="submit" class="comment-button submit-button">Submit</button>
         </form>
-        <button type="button" onclick="deleteComments()">Delete All Comments</button>
+        <button type="button" class="comment-button delete-button" onclick="deleteComments()">
+            Delete All Comments</button>
       </section>
       <section class="comment-feed-container">
         <article class="container radio">
-          <label for="three">3</label>
+          <label for="three" class="quantity-label">3</label>
           <input type="radio" id="three" name="quantity" value="3" onchange="updateComments()" checked>
-          <label for="five">5</label>
+          <label for="five" class="quantity-label">5</label>
           <input type="radio" id="five" name="quantity" value="5" onchange="updateComments()">
-          <label for="ten">10</label>
+          <label for="ten" class="quantity-label">10</label>
           <input type="radio" id="ten" name="quantity" value="10" onchange="updateComments()">
         </article>
         <article id="comment-display" class="feed"><article>
