@@ -31,3 +31,10 @@ function formatComments(container, comments) {
     container.appendChild(pElement);
   });
 }
+
+/** Delete every comment from the feed */
+async function deleteComments() {
+  // The fetch will delete every comment and return an empty string
+  const response = await fetch("/delete-data", { method: 'POST' });
+  feed.innerHTML = response;
+}
