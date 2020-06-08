@@ -20,6 +20,8 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 import com.google.gson.Gson;
 import com.google.sps.data.Comment;
 import java.io.IOException;
@@ -34,15 +36,18 @@ import javax.servlet.http.HttpServletResponse;
 public class FormServlet extends HttpServlet {
 
   private DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+  private UserService userService = UserServiceFactory.getUserService();
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Retrieve newest user comment and store it as a Comment Entity
     String userComment = request.getParameter("user-comment");
+    String userEmail = userService.getCurrentUser().getEmail();
     
     Entity commentEntity = new Entity("Comment");
     commentEntity.setProperty("count", 0);
     commentEntity.setProperty("text", userComment);
+    commentEntity.setProperty("email", userEmail);
     
     // Store the Comment Entity in Datastore 
     datastore.put(commentEntity);
@@ -88,7 +93,8 @@ public class FormServlet extends HttpServlet {
       long id = entity.getKey().getId();
       String text = (String) entity.getProperty("text");
       long count = (long) entity.getProperty("count");
-      Comment comment = new Comment(id, text, count);
+      String email = (String) entity.getProperty("email");
+      Comment comment = new Comment(id, text, count, email);
       comments.add(comment);
     }
     return comments; 
