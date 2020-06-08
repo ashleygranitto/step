@@ -37,11 +37,13 @@ public class LikeServlet extends HttpServlet {
     long id = Long.parseLong(request.getParameter("id"));
     long count = Long.parseLong(request.getParameter("count"));
     String text = request.getParameter("text");
+    String email = request.getParameter("email");
 
     // Update count by one
     Entity commentUpdate = new Entity("Comment", id);
     commentUpdate.setProperty("count", count+1);
     commentUpdate.setProperty("text", text);
+    commentUpdate.setProperty("email", email);
     datastore.put(commentUpdate);
 
     // Send back an empty response
