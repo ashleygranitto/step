@@ -35,7 +35,6 @@ function formatComments(container, comments) {
 /** Return a paragraph element that contains a user comment */
 function addComment(comment) {
   const pElement = document.createElement('p');
-  console.log(comment);
   pElement.innerText = comment.text; 
   pElement.className = 'user-comment';
   return pElement; 
