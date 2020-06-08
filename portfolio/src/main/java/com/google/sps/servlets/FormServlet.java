@@ -21,6 +21,7 @@ import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.gson.Gson;
+import com.google.sps.data.Comment;
 import java.io.IOException;
 import java.util.*;
 import javax.servlet.annotation.WebServlet;
@@ -38,9 +39,11 @@ public class FormServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Retrieve newest user comment and store it as a Comment Entity
     String userComment = request.getParameter("user-comment");
+    
     Entity commentEntity = new Entity("Comment");
+    commentEntity.setProperty("count", 0);
     commentEntity.setProperty("text", userComment);
-
+    
     // Store the Comment Entity in Datastore 
     datastore.put(commentEntity);
 
@@ -70,7 +73,7 @@ public class FormServlet extends HttpServlet {
     Query query = new Query("Comment");
     List<Entity> results = 
       datastore.prepare(query).asQueryResultList(FetchOptions.Builder.withLimit(max));
-    ArrayList<String> comments = formCommentList(results, max);
+    ArrayList<Comment> comments = formCommentList(results);
     
     // Send JSON-converted comments list as the response
     String json = convertToJson(comments);
@@ -79,18 +82,20 @@ public class FormServlet extends HttpServlet {
   }
 
   // Return a list containing the text element of at most 'max' Comment Entities 
-  private ArrayList<String> formCommentList(List<Entity> results, int max) {
-    ArrayList<String> comments = new ArrayList<>();
-    int commentCount = 0;
+  private ArrayList<Comment> formCommentList(List<Entity> results) {
+    ArrayList<Comment> comments = new ArrayList<>();
     for (Entity entity : results) {
-      String comment = (String) entity.getProperty("text");
+      long id = entity.getKey().getId();
+      String text = (String) entity.getProperty("text");
+      long count = (long) entity.getProperty("count");
+      Comment comment = new Comment(id, text, count);
       comments.add(comment);
     }
     return comments; 
   }
 
   // Converts a String-type ArrayList into a JSON string using the Gson library
-  private String convertToJson(ArrayList<String> list) {
+  private String convertToJson(ArrayList<Comment> list) {
     Gson gson = new Gson();
     String json = gson.toJson(list);
     return json;
