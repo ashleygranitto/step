@@ -1,5 +1,25 @@
 const DEFAULT_COMMENT_COUNT = 3;
 
+/** Update the page upon page load */
+function init() {
+  checkLogin();
+  getComments(); 
+}
+
+/** Ensure the comment form is only displayed if the user is logged in */
+async function checkLogin() { 
+  const response = await fetch('/login-status');
+  const status = await response.json();
+
+  if (status === 'in') { 
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('comment-form').style.display = 'flex';
+  } else {
+    document.getElementById('comment-form').style.display = 'none';
+    document.getElementById('login-form').style.display = 'flex';
+  }  
+}
+
 /** Retrieve and post the default quantity of user comments */
 function getComments() {
   postFeed(DEFAULT_COMMENT_COUNT);
@@ -35,8 +55,7 @@ function formatComments(container, comments) {
 /** Return a paragraph element that contains a user comment */
 function addComment(comment) {
   const pElement = document.createElement('p');
-  console.log(comment);
-  pElement.innerText = comment.text; 
+  pElement.innerText = comment.email + ': ' + comment.text; 
   pElement.className = 'user-comment';
   return pElement; 
 }
@@ -62,7 +81,6 @@ function getLoveIcon(comment) {
 
 /** Return a paragraph element that contains the amount of likes a comment has recieved */
 function getLoveCount(comment) {
-  // TO DO--determine using Datastore how many likes to diplay--0 is placeholder for now
   const counter = document.createElement('p');
   counter.innerText = comment.count;
   return counter; 
@@ -70,14 +88,12 @@ function getLoveCount(comment) {
 
 /** Delete every comment from the feed */
 async function deleteComments() {
-  // response is not meaningful and is just used to catch the fetch return
-  const response = await fetch("/delete-data", { method: 'POST' });
+  await fetch("/delete-data", { method: 'POST' });
   feed.innerHTML = '';
 }
 
 /** Increment a comment's like value by one */
 async function updateLike(comment) {
-  // response is not meaningful and is just used to catch the fetch return
-  const response = await fetch('/update-count?id=' + comment.id + '&count=' + comment.count 
-    + '&text=' + comment.text, { method: 'POST' });
+  await fetch(`/update-count?id=${comment.id}&count=${comment.count}` +
+    `&text=${comment.text}&email=${comment.email}`, { method: 'POST' });
 }
