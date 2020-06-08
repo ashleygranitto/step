@@ -391,8 +391,15 @@ p.account-username {
   font-size: 30px;
 }
 
+.login-container {
+  background-color: #fbfbfb;
+  height: 800px;
+  width: 50%;
+}
+
 .form-container {
   background-color: #fbfbfb;
+  display: none; 
   height: 800px;
   width: 50%;
 }
@@ -461,6 +468,11 @@ p.user-comment {
   background-color: #ffa69e;
 }
 
+.login-button {
+  background-color: #aed9e0;
+  text-decoration: none; 
+}
+
 .quantity-label {
   color: white; 
   font-size: .66em; 
@@ -479,3 +491,18 @@ p.user-comment {
 .love-button:hover {
   color: #ddd;
 }
+
+.login-text {
+  border: 5px solid #b8f2e6;
+  border-radius: 25px;
+  color: #ffa69e; 
+  font-family: 'Judson', serif;
+  font-size: 40px;
+  margin-bottom: 5px;
+  margin-top: 5px;  
+  padding: 5px; 
+  text-align: center; 
+  vertical-align: center;
+}
+
+
