@@ -7,14 +7,18 @@
     <script src="https://kit.fontawesome.com/e073fdea10.js" crossorigin="anonymous"></script>
     <script src="comment-form.js"></script>
   </head>
-  <body class="container comment-container" onload="getComments()">
+  <body class="container comment-container" onload="init()">
     <nav class="navbar">
+      <a href="account.html">account</a>
       <a href="comment.html">comment</a>
       <a href="contact.html">contact</a>
       <a href="projects.html">projects</a>
       <a href="index.html">about</a>
     </nav>
     <main class="container comment-section-container">
+      <section id="login-form" class="container login-container">
+        <a href="/login" class="comment-button login-button">Log In To Comment</a>
+      </section>
       <section id="comment-form" class="container form-container">
         <form action="/handle-comment" class="container form" method="POST">
           <label for="user-comment" class="comment-label">Leave a Comment Below:</label>

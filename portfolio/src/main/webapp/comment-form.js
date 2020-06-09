@@ -1,5 +1,25 @@
 const DEFAULT_COMMENT_COUNT = 3;
 
+/** Update the page upon page load */
+function init() {
+  checkLogin();
+  getComments(); 
+}
+
+/** Ensure the comment form is only displayed if the user is logged in */
+async function checkLogin() { 
+  const response = await fetch('/login-status');
+  const status = await response.json();
+
+  if (status === 'in') { 
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('comment-form').style.display = 'flex';
+  } else {
+    document.getElementById('comment-form').style.display = 'none';
+    document.getElementById('login-form').style.display = 'flex';
+  }  
+}
+
 /** Retrieve and post the default quantity of user comments */
 function getComments() {
   postFeed(DEFAULT_COMMENT_COUNT);
@@ -27,7 +47,7 @@ function formatComments(container, comments) {
   comments.forEach((comment) => {
     const secElement = document.createElement('section');
     secElement.appendChild(addComment(comment));
-    secElement.appendChild(addLoveFeature());  
+    secElement.appendChild(addLoveFeature(comment));  
     container.appendChild(secElement);
   });
 }
@@ -35,38 +55,45 @@ function formatComments(container, comments) {
 /** Return a paragraph element that contains a user comment */
 function addComment(comment) {
   const pElement = document.createElement('p');
-  pElement.innerText = comment; 
+  pElement.innerText = comment.email + ': ' + comment.text; 
   pElement.className = 'user-comment';
   return pElement; 
 }
 
 /** Return a div element that contains a love icon and love count */
-function addLoveFeature() {
+function addLoveFeature(comment) {
   const divElement = document.createElement('div');
   divElement.className = 'container love-button-container';
-  divElement.appendChild(getLoveIcon());
-  divElement.appendChild(getLoveCount());
+  divElement.appendChild(getLoveIcon(comment));
+  divElement.appendChild(getLoveCount(comment));
   return divElement; 
 }
 
 /** Return an icon element that contains a love icon */
-function getLoveIcon() {
+function getLoveIcon(comment) {
   const loveIcon = document.createElement('i'); 
   loveIcon.className = 'love-button far fa-heart';
+  loveIcon.addEventListener('click', () => {
+    updateLike(comment);
+  });
   return loveIcon;
 }
 
 /** Return a paragraph element that contains the amount of likes a comment has recieved */
-function getLoveCount() {
-  // TO DO--determine using Datastore how many likes to diplay--0 is placeholder for now
+function getLoveCount(comment) {
   const counter = document.createElement('p');
-  counter.innerText = '0';
+  counter.innerText = comment.count;
   return counter; 
 }
 
 /** Delete every comment from the feed */
 async function deleteComments() {
-  // response is not meaningful and is just used to catch the fetch return
-  const response = await fetch("/delete-data", { method: 'POST' });
+  await fetch("/delete-data", { method: 'POST' });
   feed.innerHTML = '';
+}
+
+/** Increment a comment's like value by one */
+async function updateLike(comment) {
+  await fetch(`/update-count?id=${comment.id}&count=${comment.count}` +
+    `&text=${comment.text}&email=${comment.email}`, { method: 'POST' });
 }
