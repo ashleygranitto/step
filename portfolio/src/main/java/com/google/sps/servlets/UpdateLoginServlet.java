@@ -33,21 +33,19 @@ public class UpdateLoginServlet extends HttpServlet {
 
     if (userService.isUserLoggedIn()) {
       // Create login URL that redirects user to the about page
-      String logoutUrl = userService.createLogoutURL("/index.html");
+      String logoutUrl = userService.createLogoutURL("/account.html");
       
-      // Display personal welcome message and allow user to log out
+      // Return personal welcome message and allow user to log out
       String userEmail = userService.getCurrentUser().getEmail();
-      response.getWriter().println("<p>Hello " + userEmail + "!</p>");
-      response.getWriter().println("<p>Logout <a href=\"" + logoutUrl + "\">Here</a>.</p>");
-      response.getWriter().println("<a href=\"index.html\">Continue Browsing</a></p>");
+      String body = "<p>Hello " + userEmail + "!</p><p>Logout <a href=\"" + logoutUrl + "\">Here</a>.</p>"; 
+      response.getWriter().println(body);
     } else {
       // Create login URL that redirects user to the about page
-      String loginUrl = userService.createLoginURL("/index.html");
+      String loginUrl = userService.createLoginURL("/account.html");
 
-      // Display generic welcome message and allow user to log in 
-      response.getWriter().println("<p>Hello stranger.</p>");
-      response.getWriter().println("<p>Login <a href=\"" + loginUrl + "\">Here</a>.</p>");
-      response.getWriter().println("<a href=\"index.html\">Continue Browsing as Guest</a></p>");
+      // Return generic welcome message and allow user to log in 
+      String body = "<p>Hello stranger.</p>" + "<p>Login <a href=\"" + loginUrl + "\">Here</a>.</p>"; 
+      response.getWriter().println(body);
     }
   }
 }
