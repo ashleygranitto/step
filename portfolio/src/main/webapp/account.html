@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/e073fdea10.js" crossorigin="anonymous"></script>
-    <script src="load-contact.js"></script>
+    <script src="load-account.js"></script>
   </head>
-  <body class="container comment-container">
+  <body class="container account-container" onload="checkLogin()">
     <nav class="navbar">
       <a href="account.html">account</a>
       <a href="comment.html">comment</a>
@@ -14,15 +14,8 @@
       <a href="projects.html">projects</a>
       <a href="index.html">about</a>
     </nav>
-    <main class="container usernames-container">
-      <div class="business-tab" onclick="personalToBusiness()">BUSINESS</div>
-      <section id="business-body" class="business-body">
-        <script>createBusinessBody();</script>
-      </section>
-      <section id="personal-body" class="personal-body">
-        <script>createPersonalBody();</script> 
-      </section>
-      <div class="personal-tab" onclick="businessToPersonal()">PERSONAL</div>
+    <main class="container login-container">
+      <section id="login-text" class="login-text"></section>
     </main>
     <footer class="footer">
       <a href="https://www.linkedin.com/in/ashley-granitto"><i class="fab fa-linkedin-in fa-3x"></i></a>
