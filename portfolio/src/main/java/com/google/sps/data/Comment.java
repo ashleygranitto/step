@@ -21,11 +21,13 @@ public final class Comment {
   private final String text;
   private final long count;
   private final String email; 
+  private final String url; 
 
-  public Comment(long id, String text, long count, String email) {
+  public Comment(long id, String text, long count, String email, String url) {
     this.id = id; 
     this.text = text;
     this.count = count;
     this.email = email; 
+    this.url = url; 
   }
 }
