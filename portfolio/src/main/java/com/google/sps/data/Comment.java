@@ -20,10 +20,12 @@ public final class Comment {
   private final long id;
   private final String text;
   private final long count;
+  private final String email; 
 
-  public Comment(long id, String text, long count) {
+  public Comment(long id, String text, long count, String email) {
     this.id = id; 
     this.text = text;
     this.count = count;
+    this.email = email; 
   }
 }
