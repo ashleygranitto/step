@@ -20,9 +20,10 @@
         <a href="/login" class="comment-button login-button">Log In To Comment</a>
       </section>
       <section id="comment-form" class="container form-container">
-        <form action="/handle-comment" class="container form" method="POST">
+        <form id="visible-form" class="container form" method="POST" enctype="multipart/form-data">
           <label for="user-comment" class="comment-label">Leave a Comment Below:</label>
           <input type="text" id="user-comment" name="user-comment">
+          <input type="file" name="image" class="comment-button">
           <button type="submit" class="comment-button submit-button">Submit</button>
         </form>
         <button type="button" class="comment-button delete-button" onclick="deleteComments()">
