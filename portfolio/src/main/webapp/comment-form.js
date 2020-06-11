@@ -80,7 +80,7 @@ function addCommentText(comment) {
 
 /** Return a paragraph element that contains a user comment */
 function addCommentImage(comment) {
-  const imgElement = document.createElement('img');
+  const imgElement = new Image(30, 30);
   imgElement.src = comment.url;
   imgElement.className = 'comment-image';
   return imgElement; 
