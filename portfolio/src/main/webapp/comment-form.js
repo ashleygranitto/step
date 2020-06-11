@@ -4,6 +4,7 @@ const DEFAULT_COMMENT_COUNT = 3;
 function init() {
   checkLogin();
   getComments(); 
+  setFormAction();
 }
 
 /** Ensure the comment form is only displayed if the user is logged in */
@@ -11,7 +12,7 @@ async function checkLogin() {
   const response = await fetch('/login-status');
   const status = await response.json();
 
-  if (status === 'in') { 
+  if (status.isLoggedIn) { 
     document.getElementById('login-form').style.display = 'none';
     document.getElementById('comment-form').style.display = 'flex';
   } else {
@@ -24,6 +25,15 @@ async function checkLogin() {
 function getComments() {
   postFeed(DEFAULT_COMMENT_COUNT);
 }
+
+/** Set the action of the comment form to be the Blobstore URL */
+async function setFormAction() {
+  const response = await fetch('/blobstore-link');
+  const url = await response.text();
+
+  const commentForm = document.getElementById('visible-form');
+  commentForm.action = url; 
+} 
 
 /** Update the feed to display the quantity of comments the user requested */
 function updateComments() {
@@ -54,10 +64,26 @@ function formatComments(container, comments) {
 
 /** Return a paragraph element that contains a user comment */
 function addComment(comment) {
+  const secElement = document.createElement('section');
+  secElement.appendChild(addCommentText(comment));
+  secElement.appendChild(addCommentImage(comment));  
+  return secElement; 
+}
+
+/** Return a paragraph element that contains a user comment */
+function addCommentText(comment) {
   const pElement = document.createElement('p');
   pElement.innerText = comment.email + ': ' + comment.text; 
   pElement.className = 'user-comment';
   return pElement; 
+}
+
+/** Return a paragraph element that contains a user comment */
+function addCommentImage(comment) {
+  const imgElement = new Image(30, 30);
+  imgElement.src = comment.url;
+  imgElement.className = 'comment-image';
+  return imgElement; 
 }
 
 /** Return a div element that contains a love icon and love count */
