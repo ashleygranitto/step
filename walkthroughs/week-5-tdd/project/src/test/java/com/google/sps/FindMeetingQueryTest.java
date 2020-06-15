@@ -274,7 +274,7 @@ public final class FindMeetingQueryTest {
   }
 
   @Test
-  public void optionalAttendeeUnavailable() {
+  public void optionalAttendeeUnavailable_returnsMandatoryAvailability() {
     // Have each person have different events. An optional attendee C has an all day event. We should see 
     // three options because only A & B are relevant, as C is not able to make any time frame. 
     //
@@ -306,7 +306,7 @@ public final class FindMeetingQueryTest {
   }
 
   @Test
-  public void optionalAttendeeAvailableLimited() {
+  public void optionalAttendeeAvailable_returnsMergedAvailability() {
     // Have each person have different events. An optional attendee C has one 30 minute event. We should see 
     // two options because there are two slots in which all 3 attendees are available. 
     //
@@ -337,7 +337,7 @@ public final class FindMeetingQueryTest {
   }
 
   @Test
-  public void notEnoughOptionalRoom() {
+  public void notEnoughRoomForOptional_returnsMandatoryAvailability() {
     // Have one mandatory person, but make it so that there is just enough room at one point in the day to
     // have the meeting. Accounting for an optional person's schedule would not leave enough time for a 
     // meeting, so they are not included.
@@ -367,7 +367,7 @@ public final class FindMeetingQueryTest {
   }
 
   @Test
-  public void allOptionalWithGaps() {
+  public void onlyOptionalWithGaps_returnsOptionalAvailability() {
     // There are only two optional attendees, but their combined schedules have gaps, so we are 
     // able to determine multiple ranges in which a meeting might occur. 
     //
@@ -396,7 +396,7 @@ public final class FindMeetingQueryTest {
   }
 
   @Test
-  public void AllOptionalNoGaps() {
+  public void onlyOptionalWithouthGaps_returnsOptionalAvailability() {
     // There are only two optional attendees, but their combined schedules have no gaps, so we are 
     // not able to determine any range in which a meeting might occur. 
     //
