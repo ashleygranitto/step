@@ -60,8 +60,10 @@ public final class FindMeetingQuery {
     } 
         
     // Merge mandatory and optional attendees 
-    List<String> mergedAttendees = new ArrayList<>(mandatoryMeetingAttendees);
-    mergedAttendees.addAll(optionalMeetingAttendees);
+    ImmutableSet mergedAttendees = ImmutableSet.<String>builder() 
+      .addAll(mandatoryMeetingAttendees)
+      .addAll(optionalMeetingAttendees)
+      .build();
 
     // Return availability of all attendees if possible, otherwise return availability of mandatory attendees
     ImmutableList<TimeRange> mergedRanges = determineAvailability(events, mergedAttendees, meetingDuration);
